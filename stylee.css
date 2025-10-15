@@ -1,0 +1,285 @@
+:root {
+--color-primary: #007bff;
+--color-secondary: #6c757d;
+--color-background-start: #f0f4f8; /* Latar Belakang Halaman: Biru muda/abu-abu sangat terang */
+--color-background-end: #e0e6ed;
+/* --- PERUBAHAN DI SINI --- */
+--color-card-background-rgb: 255, 255, 255; /* Hanya nilai RGB (Putih) */
+--card-opacity: 0.84; /* Tingkat keburaman (90% Buram, 10% Transparan) */
+/* -------------------------- */
+--color-recipient-bg: #f8f9fa; /* Latar belakang kotak penerima */
+--color-text: #343a40;
+--color-border: #ced4da;
+--font-family: 'Inter', sans-serif;
+}
+
+/* Global Reset dan Body */
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+body {
+ font-family: var(--font-family);
+ color: var(--color-text);
+ /* Latar Belakang Halaman */
+ /* Menggunakan gambar background yang Anda berikan */
+ background-image: url('foto.jpg.jpg'); background-repeat: no-repeat;
+ background-attachment: fixed; 
+ background-size: cover; 
+ background-color: #000000; 
+
+ min-height: 100vh; /* Diperbaiki agar konten bisa di tengah vertikal */
+ display: flex;
+ justify-content: center;
+ align-items: center; /* Memposisikan kartu di tengah halaman */
+ padding: 40px 20px;
+}
+
+/* Container Utama */
+.container {
+ max-width: 1550px;
+ max-height: px;
+ width: 100%;
+}
+
+/* Card Utama (Wadah Putih) */
+.card.left {
+/* Menggunakan RGBA dengan opacity 0.95 (lebih buram) */
+ background-color: rgba(var(--color-card-background-rgb), var(--card-opacity));
+ padding: 40px;
+ border-radius: 18px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Bayangan sedikit diperkuat agar kartu menonjol */
+ border: 1px solid var(--color-border);
+}
+
+/* Judul */
+.title {
+ font-size: 1.8em;
+ margin-bottom: 20px;
+ color: var(--color-primary);
+ text-transform: uppercase;
+}
+
+/* ---------------------------------------------------- */
+/* TATA LETAK ATAS: Textarea dan Penerima Berdampingan */
+/* ---------------------------------------------------- */
+.top-row-content {
+ display: flex;
+ gap: 25px;
+ margin-bottom: 30px;
+ align-items: stretch; /* Penting untuk menyamakan tinggi kolom */
+}
+
+.letter-column {
+ flex: 2.5; 
+}
+
+/* Kotak Penerima (Dipindahkan ke Samping Kanan) */
+.recipient-column {
+ flex: 1; 
+ /* PENTING: Padding 25px untuk semua sisi agar jarak rata */
+ padding: 25px; 
+ /* --- Opsional: Buat kolom penerima juga transparan sedikit --- */
+ background-color: rgba(248, 249, 250, 0.85); /* rgba(RGB background-color, 0.85) */
+ border: 1px solid #e9ecef;
+border-radius: 8px; 
+ display: flex;
+ flex-direction: column;
+}
+
+/* Textarea */
+textarea#content {
+ width: 100%;
+ padding: 15px;
+ border: 1px solid var(--color-border);
+ border-radius: 8px;
+ resize: vertical;
+ font-family: var(--font-family);
+ font-size: 1em;
+ min-height: 250px;
+ flex-grow: 1;
+ height: 100%; /* Penting agar textarea mengisi ruang kosong secara vertikal */
+}
+
+/* Label Input */
+label {
+ display: block;
+ font-weight: 600;
+ margin-top: 15px;
+ margin-bottom: 5px;
+ font-size: 0.95em;
+}
+
+/* PENTING: Hapus margin-top pada label pertama agar jarak atas rata dengan padding 25px */
+.recipient-column label:first-of-type {
+ margin-top: 0;
+}
+
+/* Input Email dan Teks */
+input[type="email"], input[type="text"] {
+ width: 100%;
+ padding: 10px;
+ border: 1px solid var(--color-border);
+ border-radius: 6px;
+ font-family: var(--font-family);
+ font-size: 1em;
+ margin-bottom: 10px;
+}
+
+/* Actions dan Button */
+.actions {
+ margin-top: 20px;
+ flex-grow: 1; 
+display: flex; flex-direction: column;
+ justify-content: flex-end;
+}
+
+.btn {
+ padding: 12px 20px;
+ border: none;
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 1em;
+ font-weight: 700;
+ transition: background-color 0.3s ease;
+}
+
+.btn.primary {
+ background-color: var(--color-primary);
+ color: white;
+ box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+.btn.primary:hover {
+ background-color: #0056b3;
+}
+
+.status {
+ text-align: center;
+ font-style: italic;
+ color: var(--color-secondary);
+ padding: 10px 0;
+ font-size: 0.9em;
+}
+
+/* ---------------------------------------------------- */
+/* Tata Letak Input Waktu (Deliver In - Sejajar) */
+/* ---------------------------------------------------- */
+.bottom-row-content {
+ margin-top: 20px;
+ padding-top: 20px;
+ border-top: 1px solid #f0f0f0;
+}
+
+.row.delivery-time-inputs {
+ display: flex;
+ justify-content: space-between;
+ gap: 15px;
+ margin-bottom: 10px;
+}
+
+.row.delivery-time-inputs .inline {
+ flex: 1;
+ text-align: center;
+}
+
+input[type="number"] {
+ width: 100%;
+ padding: 10px;
+ border: 1px solid var(--color-border);
+ border-radius: 6px;
+ font-family: var(--font-family);
+ font-size: 1em;
+ margin-bottom: 5px;
+ text-align: center;
+}
+
+.row.delivery-time-inputs small {
+ display: block;
+ font-size: 0.85em;
+ color: var(--color-secondary);
+ font-weight: 500;
+}
+
+/* Catatan Kecil */
+.hint {
+ display: block;
+ font-size: 0.8em;
+ color: var(--color-secondary);
+ margin-top: 15px;
+ text-align: center;
+}
+
+/* Media Queries (Responsif) */
+@media (max-width: 800px) {
+ .top-row-content {
+flex-direction: column; /* Tumpuk Textarea dan Penerima secara vertikal pada layar kecil */
+ }
+ .recipient-column {
+ margin-top: 20px;
+ }
+}
+
+ /* Styling for the main container of the delivery inputs */
+.delivery-time-inputs {
+ /* Use Flexbox to align the date and time inputs side-by-side */
+ display: flex;
+ gap: 20px; /* Space between the Date and Time boxes */
+ margin-top: 5px;
+}
+
+/* Styling for each individual input box (Tanggal and Waktu) */
+.delivery-time-inputs .inline {
+ flex: 1; /* Makes both columns take up equal space */
+ 
+ /* The 'Persegi' or Card Look */
+ /* --- Opsional: Buat kotak tanggal dan waktu juga transparan sedikit --- */
+ background-color: rgba(248, 249, 250, 0.85); /* rgba(RGB background-color, 0.85) */
+ border: 1px solid #ddd; /* Light border */
+ border-radius: 8px; /* Rounded corners for a softer look */
+ padding: 15px; /* Inner spacing */
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+ 
+ /* Arrange elements inside the box (label and input) vertically */
+ display: flex;
+ flex-direction: column;
+}
+
+/* Styling for the labels above the inputs */
+.delivery-time-inputs .inline label {
+ font-size: 0.9em;
+ font-weight: 600;
+ color: #555;
+ margin-bottom: 5px;
+}
+
+/* Styling for the actual date and time input fields */
+.delivery-time-inputs .inline input {
+ /* Full width within the padded box */
+ width: 100%; 
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ box-sizing: border-box; /* Ensures padding doesn't increase total width */
+ font-size: 1em;
+ /* Optional: Remove default focus outline and add custom one */
+ outline: none; 
+ transition: border-color 0.2s;
+}
+
+/* Hover/Focus effect for better user experience */
+.delivery-time-inputs .inline input:focus {
+ border-color: #007bff; /* Highlight border when focused (e.g., blue) */
+ box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Ensure the main "Deliver on" label is clear */
+.bottom-row-content > label {
+ font-size: 1.1em;
+ font-weight: bold;
+ color: #333;
+ display: block; /* Make it take its own line */
+ margin-bottom: 10px;
+}

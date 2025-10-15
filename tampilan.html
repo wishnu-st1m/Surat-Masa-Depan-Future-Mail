@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Mail — Kirim ke Masa Depan</title>
+    <link rel="icon" type="image/png" href="jam.jpg.jpeg"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylee.css" />
+</head>
+<body>
+    <main class="container" id="future-mail-app">
+        <div id="profile-icon-btn">👤</div> 
+        
+        <section class="card left">
+            <h1 class="title">A LETTER FOR THE FUTURE</h1>
+
+            <div class="top-row-content">
+                <div class="letter-column">
+                    <textarea id="content" placeholder="Dear future me," rows="12"></textarea>
+                </div>
+
+                <aside class="recipient-column">
+                    <label>Email penerima</label>
+                    <input id="recipient" placeholder="kamu@email.com" type="email" />
+                    <label>Tambahkan penerima lain (pisah koma)</label>
+                    <input id="additional" placeholder="lain@example.com, teman@example.com" type="text" />
+                    <div class="actions">
+                        <button id="send" class="btn primary">Send to the Future</button>
+                        <div id="status" class="status">Belum dikirim</div>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="bottom-row-content">
+                <label>Deliver on</label>
+                <div class="row delivery-time-inputs">
+                    <div class="inline">
+                        <label for="deliver_date">Tanggal</label>
+                        <input id="deliver_date" type="date" required /> 
+                    </div>
+                    <div class="inline">
+                        <label for="deliver_time">Waktu (Jam:Menit:Detik)</label>
+                        <input id="deliver_time" type="time" step="1" value="00:00:00" required /> 
+                    </div>
+                </div>
+            </div>
+
+            <small class="hint">Catatan: Pastikan Anda memilih tanggal dan waktu di masa depan.</small>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
